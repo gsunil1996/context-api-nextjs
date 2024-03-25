@@ -1,7 +1,16 @@
 // counterReducer.js
 
-import { CounterAction, CounterState } from "@/types/counterTypes";
-import { DECREMENT, INCREMENT } from "../actionTypes/counterActionTypes";
+import {
+  CounterAction,
+  CounterState,
+  DecrementActionType,
+  IncrementActionType,
+} from "@/types/counterTypes";
+import {
+  DECREMENT,
+  INCREMENT,
+  RESET_COUNTER,
+} from "../actionTypes/counterActionTypes";
 import { counterInitialState } from "../initialStates/counterInitialState";
 
 const counterReducer = (
@@ -10,9 +19,20 @@ const counterReducer = (
 ): CounterState => {
   switch (action.type) {
     case INCREMENT:
-      return { ...state, count: state.count + action.payload };
+      return {
+        ...state,
+        count: state.count + (action as IncrementActionType).payload,
+      };
     case DECREMENT:
-      return { ...state, count: state.count - action.payload };
+      return {
+        ...state,
+        count: state.count - (action as DecrementActionType).payload,
+      };
+    case RESET_COUNTER:
+      return {
+        ...state,
+        count: 0,
+      };
     default:
       return state;
   }

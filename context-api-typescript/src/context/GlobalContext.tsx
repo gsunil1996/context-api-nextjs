@@ -1,26 +1,18 @@
 // GlobalContext.tsx
 
 "use client"
-import React, { Dispatch, ReactNode, createContext, useReducer } from 'react';
+import React, { Dispatch, createContext, useReducer } from 'react';
 import weatherReducer from './reducers/weatherReducer';
 import counterReducer from './reducers/counterReducer';
 import { weatherInitialState } from './initialStates/weatherInitialState';
 import { counterInitialState } from './initialStates/counterInitialState';
-import { WeatherAction, WeatherState } from '@/types/weatherTypes';
-import { CounterAction, CounterState } from '@/types/counterTypes';
-
-// Define a union type for all possible action types
-type ActionType = WeatherAction | CounterAction;
-
-// Define types for initial state
-type StateType = {
-  weather: WeatherState;
-  counter: CounterState;
-};
+import { WeatherAction } from '@/types/weatherTypes';
+import { CounterAction } from '@/types/counterTypes';
+import { ActionType, ChildrenProps, RootReducerAction, RootReducerParams, StateType } from '@/types/contextTypes';
 
 
 // Combine the reducers
-const rootReducer = ({ weather, counter }: { weather: WeatherState; counter: CounterState }, action: WeatherAction | CounterAction) => ({
+const rootReducer = ({ weather, counter }: RootReducerParams, action: RootReducerAction) => ({
   weather: weatherReducer(weather, action as WeatherAction),
   counter: counterReducer(counter, action as CounterAction)
 });
@@ -41,7 +33,7 @@ export const GlobalContext = createContext<{
   dispatch: () => null,
 });
 
-export const GlobalProvider = ({ children }: { children: ReactNode }) => {
+export const GlobalProvider = ({ children }: ChildrenProps) => {
   const [state, dispatch] = useReducer(rootReducer, initialState);
 
   return <GlobalContext.Provider value={{ state, dispatch }}>{children}</GlobalContext.Provider>;

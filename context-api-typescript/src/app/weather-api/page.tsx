@@ -7,6 +7,9 @@ import React, { useContext, useEffect, useState } from 'react'
 
 const WeatherApi = () => {
   const { state, dispatch } = useContext(GlobalContext);
+
+  // console.log("checkState", state)
+
   const {
     weather: { weatherData, isLoading, isSuccess, isError, error },
   } = state;
