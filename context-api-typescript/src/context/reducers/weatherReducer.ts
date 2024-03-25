@@ -1,6 +1,12 @@
 // weatherReducer.js
 
-import { WeatherAction, WeatherData, WeatherState } from "@/types/weatherTypes";
+import {
+  GetWeatherFailureAction,
+  GetWeatherSuccessAction,
+  WeatherAction,
+  WeatherData,
+  WeatherState,
+} from "@/types/weatherTypes";
 import {
   GET_WEATHER_FAILURE,
   GET_WEATHER_REQUEST,
@@ -25,7 +31,7 @@ const weatherReducer = (
     case GET_WEATHER_SUCCESS:
       return {
         ...state,
-        weatherData: action.payload as WeatherData,
+        weatherData: (action as GetWeatherSuccessAction).payload as WeatherData,
         isLoading: false,
         isSuccess: true,
         isError: false,
@@ -38,7 +44,7 @@ const weatherReducer = (
         isLoading: false,
         isSuccess: false,
         isError: true,
-        error: action.payload,
+        error: (action as GetWeatherFailureAction).payload,
       };
     default:
       return state;
