@@ -6,21 +6,21 @@ import weatherReducer from './reducers/weatherReducer';
 import counterReducer from './reducers/counterReducer';
 import { weatherInitialState } from './initialStates/weatherInitialState';
 import { counterInitialState } from './initialStates/counterInitialState';
-import { WeatherAction } from '@/types/weatherTypes';
-import { CounterAction } from '@/types/counterTypes';
-import { ChildrenProps, StateType } from '@/types/contextTypes';
+import { WeatherAction, WeatherState } from '@/types/weatherTypes';
+import { CounterAction, CounterState } from '@/types/counterTypes';
 import { petsReducer } from './reducers/petsReducer';
-import { PetsActionsTypes } from '@/types/petsTypes';
+import { PetsActionsTypes, PetsStateType } from '@/types/petsTypes';
 import { petsInitialState } from './initialStates/petsInitialState';
+import { ChildrenProps } from '@/types/commonTypes';
 
 
 // Create context with initial state as default value
 export const GlobalContext = createContext<{
-  counterState: StateType['counter'];
+  counterState: CounterState;
   counterDispatch: Dispatch<CounterAction>;
-  weatherState: StateType['weather'];
+  weatherState: WeatherState;
   weatherDispatch: Dispatch<WeatherAction>;
-  petsState: StateType['pets'];
+  petsState: PetsStateType;
   petsDispatch: Dispatch<PetsActionsTypes>;
 }>({
   counterState: counterInitialState,
