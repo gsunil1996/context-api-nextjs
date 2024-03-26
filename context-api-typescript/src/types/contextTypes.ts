@@ -13,15 +13,4 @@ export type StateType = {
   pets: PetsStateType;
 };
 
-export type RootReducerParams = {
-  weather: WeatherState;
-  counter: CounterState;
-  pets: PetsStateType;
-};
-
-export type RootReducerAction =
-  | WeatherAction
-  | CounterAction
-  | PetsActionsTypes;
-
 export type ChildrenProps = { children: ReactNode };
