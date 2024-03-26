@@ -9,7 +9,8 @@ import { WeatherAction, WeatherErrorResponse } from "@/types/weatherTypes";
 import { Dispatch } from "react";
 
 export const getWeatherData =
-  (city: string) => async (dispatch: Dispatch<WeatherAction>) => {
+  (city: string) =>
+  async (dispatch: Dispatch<WeatherAction>): Promise<void> => {
     try {
       dispatch({
         type: GET_WEATHER_REQUEST,

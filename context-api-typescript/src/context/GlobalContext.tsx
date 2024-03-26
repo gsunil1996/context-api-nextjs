@@ -9,19 +9,24 @@ import { counterInitialState } from './initialStates/counterInitialState';
 import { WeatherAction } from '@/types/weatherTypes';
 import { CounterAction } from '@/types/counterTypes';
 import { ActionType, ChildrenProps, RootReducerAction, RootReducerParams, StateType } from '@/types/contextTypes';
+import { petsReducer } from './reducers/petsReducer';
+import { PetsActionsTypes } from '@/types/petsTypes';
+import { petsInitialState } from './initialStates/petsInitialState';
 
 
 // Combine the reducers
-const rootReducer = ({ weather, counter }: RootReducerParams, action: RootReducerAction) => ({
+const rootReducer = ({ weather, counter, pets }: RootReducerParams, action: RootReducerAction) => ({
   weather: weatherReducer(weather, action as WeatherAction),
-  counter: counterReducer(counter, action as CounterAction)
+  counter: counterReducer(counter, action as CounterAction),
+  pets: petsReducer(pets, action as PetsActionsTypes)
 });
 
 
 // Combine the initial states
 const initialState: StateType = {
   weather: weatherInitialState,
-  counter: counterInitialState
+  counter: counterInitialState,
+  pets: petsInitialState
 };
 
 // Create context with initial state as default value

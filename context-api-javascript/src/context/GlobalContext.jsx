@@ -6,19 +6,23 @@ import weatherReducer from './reducers/weatherReducer';
 import counterReducer from './reducers/counterReducer';
 import { weatherInitialState } from './initialStates/weatherInitialState';
 import { counterInitialState } from './initialStates/counterInitialState';
+import { petsReducer } from './reducers/petsReducer';
+import { petsInitialState } from './initialStates/petsInitialState';
 
 
 // Combine the reducers
-const rootReducer = ({ weather, counter }, action) => ({
+const rootReducer = ({ weather, counter, pets }, action) => ({
   weather: weatherReducer(weather, action),
-  counter: counterReducer(counter, action)
+  counter: counterReducer(counter, action),
+  pets: petsReducer(pets, action)
 });
 
 
 // Combine the initial states
 const initialState = {
   weather: weatherInitialState,
-  counter: counterInitialState
+  counter: counterInitialState,
+  pets: petsInitialState
 };
 
 // Create context with initial state as default value
