@@ -19,7 +19,7 @@ export const petsReducer = (
     case GET_PETS_REQUEST:
       return {
         ...state,
-        petsData: null,
+        petsData: [],
         isLoading: true,
         isSuccess: false,
         isError: false,
@@ -37,7 +37,7 @@ export const petsReducer = (
     case GET_PETS_FAILURE:
       return {
         ...state,
-        petsData: null,
+        petsData: [],
         isLoading: false,
         isSuccess: false,
         isError: true,

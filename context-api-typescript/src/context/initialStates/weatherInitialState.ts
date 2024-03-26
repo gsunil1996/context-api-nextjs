@@ -1,8 +1,9 @@
+// weatherInitialState.ts
+
 import { WeatherState } from "@/types/weatherTypes";
 
-// weatherInitialState.js
 export const weatherInitialState: WeatherState = {
-  weatherData: null,
+  weatherData: { name: "", main: { temp: 0 } },
   isLoading: false,
   isSuccess: false,
   isError: false,

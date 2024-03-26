@@ -1,4 +1,4 @@
-// weatherReducer.js
+// weatherReducer.ts
 
 import {
   GetWeatherFailureAction,
@@ -22,7 +22,7 @@ const weatherReducer = (
     case GET_WEATHER_REQUEST:
       return {
         ...state,
-        weatherData: null,
+        weatherData: { name: "", main: { temp: 0 } },
         isLoading: true,
         isSuccess: false,
         isError: false,
@@ -31,7 +31,7 @@ const weatherReducer = (
     case GET_WEATHER_SUCCESS:
       return {
         ...state,
-        weatherData: (action as GetWeatherSuccessAction).payload as WeatherData,
+        weatherData: (action as GetWeatherSuccessAction).payload,
         isLoading: false,
         isSuccess: true,
         isError: false,
@@ -40,7 +40,7 @@ const weatherReducer = (
     case GET_WEATHER_FAILURE:
       return {
         ...state,
-        weatherData: null,
+        weatherData: { name: "", main: { temp: 0 } },
         isLoading: false,
         isSuccess: false,
         isError: true,

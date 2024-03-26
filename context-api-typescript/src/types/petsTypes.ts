@@ -4,7 +4,7 @@ import {
   GET_PETS_SUCCESS,
 } from "@/context/actionTypes/petsActionTypes";
 
-export type petsDataType = {
+export type PetsDataType = {
   id: string;
   name: string;
   image: {
@@ -18,7 +18,7 @@ export type GetPetsRequestType = {
 
 export type GetPetsSuccessType = {
   type: typeof GET_PETS_SUCCESS;
-  payload: Array<petsDataType>;
+  payload: PetsDataType[];
 };
 
 export type GetPetsFailureType = {
@@ -31,7 +31,7 @@ export type PetsErrorResponse = {
 };
 
 export type PetsStateType = {
-  petsData: Array<petsDataType> | null;
+  petsData: PetsDataType[];
   isLoading: boolean;
   isSuccess: boolean;
   isError: boolean;
