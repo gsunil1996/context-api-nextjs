@@ -15,7 +15,7 @@ import { petsInitialState } from './initialStates/petsInitialState';
 
 
 // Combine the reducers
-const rootReducer = ({ weather, counter, pets }: StateType, action: ActionType) => ({
+const rootReducer = ({ weather, counter, pets }: StateType, action: ActionType): StateType => ({
   weather: weatherReducer(weather, action as WeatherAction),
   counter: counterReducer(counter, action as CounterAction),
   pets: petsReducer(pets, action as PetsActionsTypes)
