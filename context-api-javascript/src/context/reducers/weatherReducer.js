@@ -12,7 +12,7 @@ const weatherReducer = (state = weatherInitialState, action) => {
     case GET_WEATHER_REQUEST:
       return {
         ...state,
-        weatherData: null,
+        weatherData: {},
         isLoading: true,
         isSuccess: false,
         isError: false,
@@ -30,7 +30,7 @@ const weatherReducer = (state = weatherInitialState, action) => {
     case GET_WEATHER_FAILURE:
       return {
         ...state,
-        weatherData: null,
+        weatherData: {},
         isLoading: false,
         isSuccess: false,
         isError: true,

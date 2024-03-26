@@ -1,5 +1,5 @@
 export const petsInitialState = {
-  petsData: null,
+  petsData: [],
   isLoading: false,
   isSuccess: false,
   isError: false,
