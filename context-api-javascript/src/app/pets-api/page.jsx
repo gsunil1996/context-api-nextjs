@@ -4,20 +4,20 @@ import { getPetsData } from '@/context/actions/petsActions';
 import React, { useContext, useEffect, useState } from 'react'
 
 const PetsApi = () => {
-  const { state, dispatch } = useContext(GlobalContext);
+  const { petsState, petsDispatch } = useContext(GlobalContext);
 
   const {
-    pets: { petsData, isLoading, isSuccess, isError, error },
-  } = state;
+    petsData, isLoading, isSuccess, isError, error
+  } = petsState;
 
   const [num, setNum] = useState(10);
 
   const handleFetchDogs = () => {
-    getPetsData(num)(dispatch)
+    getPetsData(num)(petsDispatch)
   }
 
   useEffect(() => {
-    getPetsData(num)(dispatch)
+    getPetsData(num)(petsDispatch)
   }, [])
 
   return (

@@ -1,10 +1,7 @@
 import { ReactNode } from "react";
-import { CounterAction, CounterState } from "./counterTypes";
-import { WeatherAction, WeatherState } from "./weatherTypes";
-import { PetsActionsTypes, PetsStateType } from "./petsTypes";
-
-// Define a union type for all possible action types
-export type ActionType = WeatherAction | CounterAction | PetsActionsTypes;
+import { CounterState } from "./counterTypes";
+import { WeatherState } from "./weatherTypes";
+import { PetsStateType } from "./petsTypes";
 
 // Define types for initial state
 export type StateType = {

@@ -10,26 +10,33 @@ import { petsReducer } from './reducers/petsReducer';
 import { petsInitialState } from './initialStates/petsInitialState';
 
 
-// Combine the reducers
-const rootReducer = ({ weather, counter, pets }, action) => ({
-  weather: weatherReducer(weather, action),
-  counter: counterReducer(counter, action),
-  pets: petsReducer(pets, action)
+// Create context with initial state as default value
+export const GlobalContext = createContext({
+  counterState: counterInitialState,
+  counterDispatch: () => null,
+  weatherState: weatherInitialState,
+  weatherDispatch: () => null,
+  petsState: petsInitialState,
+  petsDispatch: () => null,
 });
 
-
-// Combine the initial states
-const initialState = {
-  weather: weatherInitialState,
-  counter: counterInitialState,
-  pets: petsInitialState
-};
-
-// Create context with initial state as default value
-export const GlobalContext = createContext(initialState);
-
 export const GlobalProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(rootReducer, initialState);
+  const [counterState, counterDispatch] = useReducer(counterReducer, counterInitialState);
+  const [weatherState, weatherDispatch] = useReducer(weatherReducer, weatherInitialState);
+  const [petsState, petsDispatch] = useReducer(petsReducer, petsInitialState);
 
-  return <GlobalContext.Provider value={{ state, dispatch }}>{children}</GlobalContext.Provider>;
+  return (
+    <GlobalContext.Provider
+      value={{
+        counterState,
+        counterDispatch,
+        weatherState,
+        weatherDispatch,
+        petsState,
+        petsDispatch,
+      }}
+    >
+      {children}
+    </GlobalContext.Provider>
+  );
 };

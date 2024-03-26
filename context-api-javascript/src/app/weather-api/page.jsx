@@ -6,22 +6,22 @@ import { Box, Button, LinearProgress, TextField } from "@mui/material";
 import React, { useContext, useEffect, useState } from "react";
 
 const WeatherApi = () => {
-  const { state, dispatch } = useContext(GlobalContext);
+  const { weatherState, weatherDispatch } = useContext(GlobalContext);
   const {
-    weather: { weatherData, isLoading, isSuccess, isError, error },
-  } = state;
+    weatherData, isLoading, isSuccess, isError, error
+  } = weatherState;
 
   // console.log("checking", weatherData);
 
   const [city, setCity] = useState("");
 
   const handleClick = () => {
-    getWeatherData(city)(dispatch)
+    getWeatherData(city)(weatherDispatch)
     setCity("");
   }
 
   useEffect(() => {
-    getWeatherData("kurnool")(dispatch);
+    getWeatherData("kurnool")(weatherDispatch);
   }, []);
 
 
