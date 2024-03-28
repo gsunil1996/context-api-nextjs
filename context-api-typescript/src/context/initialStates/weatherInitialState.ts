@@ -1,6 +1,6 @@
 // weatherInitialState.ts
 
-import { WeatherState } from "@/types/weatherTypes";
+import { WeatherState } from "@/types/weather.types";
 
 export const weatherInitialState: WeatherState = {
   weatherData: { name: "", main: { temp: 0 } },

@@ -6,12 +6,12 @@ import weatherReducer from './reducers/weatherReducer';
 import counterReducer from './reducers/counterReducer';
 import { weatherInitialState } from './initialStates/weatherInitialState';
 import { counterInitialState } from './initialStates/counterInitialState';
-import { WeatherAction, WeatherState } from '@/types/weatherTypes';
-import { CounterAction, CounterState } from '@/types/counterTypes';
+import { WeatherAction, WeatherState } from '@/types/weather.types';
+import { CounterAction, CounterState } from '@/types/counter.types';
 import { petsReducer } from './reducers/petsReducer';
-import { PetsActionsTypes, PetsStateType } from '@/types/petsTypes';
+import { PetsActionsTypes, PetsStateType } from '@/types/pets.types';
 import { petsInitialState } from './initialStates/petsInitialState';
-import { ChildrenProps } from '@/types/commonTypes';
+import { ChildrenProps } from '@/types/common.types';
 
 
 // Create context with initial state as default value

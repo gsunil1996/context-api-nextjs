@@ -3,7 +3,7 @@ import {
   GetPetsSuccessType,
   PetsActionsTypes,
   PetsStateType,
-} from "@/types/petsTypes";
+} from "@/types/pets.types";
 import {
   GET_PETS_FAILURE,
   GET_PETS_REQUEST,

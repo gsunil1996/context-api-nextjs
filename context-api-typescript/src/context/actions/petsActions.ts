@@ -5,7 +5,7 @@ import {
   GET_PETS_SUCCESS,
 } from "../actionTypes/petsActionTypes";
 import { Dispatch } from "react";
-import { PetsActionsTypes, PetsErrorResponse } from "@/types/petsTypes";
+import { PetsActionsTypes, PetsErrorResponse } from "@/types/pets.types";
 
 export const getPetsData =
   (limit: number) =>

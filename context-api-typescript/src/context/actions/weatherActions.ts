@@ -5,7 +5,7 @@ import {
   GET_WEATHER_REQUEST,
   GET_WEATHER_SUCCESS,
 } from "../actionTypes/weatherActionTypes";
-import { WeatherAction, WeatherErrorResponse } from "@/types/weatherTypes";
+import { WeatherAction, WeatherErrorResponse } from "@/types/weather.types";
 import { Dispatch } from "react";
 
 export const getWeatherData =

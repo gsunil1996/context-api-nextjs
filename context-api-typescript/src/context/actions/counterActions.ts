@@ -3,7 +3,7 @@ import {
   DecrementActionType,
   IncrementActionType,
   ResetCounterActionType,
-} from "@/types/counterTypes";
+} from "@/types/counter.types";
 import {
   DECREMENT,
   INCREMENT,

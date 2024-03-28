@@ -1,4 +1,4 @@
-import { PetsStateType } from "@/types/petsTypes";
+import { PetsStateType } from "@/types/pets.types";
 
 export const petsInitialState: PetsStateType = {
   petsData: [],

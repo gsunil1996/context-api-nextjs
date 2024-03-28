@@ -6,7 +6,7 @@ import {
   WeatherAction,
   WeatherData,
   WeatherState,
-} from "@/types/weatherTypes";
+} from "@/types/weather.types";
 import {
   GET_WEATHER_FAILURE,
   GET_WEATHER_REQUEST,

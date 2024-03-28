@@ -5,7 +5,7 @@ import {
   CounterState,
   DecrementActionType,
   IncrementActionType,
-} from "@/types/counterTypes";
+} from "@/types/counter.types";
 import {
   DECREMENT,
   INCREMENT,
@@ -16,7 +16,7 @@ import { counterInitialState } from "../initialStates/counterInitialState";
 const counterReducer = (
   state: CounterState = counterInitialState,
   action: CounterAction
-): CounterState => {
+) => {
   switch (action.type) {
     case INCREMENT:
       return {
