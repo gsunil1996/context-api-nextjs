@@ -11,6 +11,8 @@ import { petsReducer } from './reducers/petsReducer';
 import { petsInitialState } from './initialStates/petsInitialState';
 import { todoInitialState } from './initialStates/todoInitialState';
 import todoReducer from './reducers/todoReducer';
+import { crudInitialState } from './initialStates/crudInitialState';
+import crudReducer from './reducers/crudReducer';
 
 
 // Create context with initial state as default value
@@ -23,6 +25,8 @@ export const GlobalContext = createContext({
   weatherDispatch: () => null,
   petsState: petsInitialState,
   petsDispatch: () => null,
+  crudState: crudInitialState,
+  crudDispatch: () => null
 });
 
 export const GlobalProvider = ({ children }) => {
@@ -30,6 +34,7 @@ export const GlobalProvider = ({ children }) => {
   const [todoState, todoDispatch] = useReducer(todoReducer, todoInitialState);
   const [weatherState, weatherDispatch] = useReducer(weatherReducer, weatherInitialState);
   const [petsState, petsDispatch] = useReducer(petsReducer, petsInitialState);
+  const [crudState, crudDispatch] = useReducer(crudReducer, crudInitialState);
 
   return (
     <GlobalContext.Provider
@@ -42,6 +47,8 @@ export const GlobalProvider = ({ children }) => {
         weatherDispatch,
         petsState,
         petsDispatch,
+        crudState,
+        crudDispatch
       }}
     >
       {children}

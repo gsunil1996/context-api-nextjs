@@ -65,7 +65,7 @@ const TodoComponent = () => {
               ) : (
                 <button onClick={(e) => handleEdiClick(e, item)}>Edit</button>
               )}
-              <button onClick={() => handleRemoveTodo(item.id)}>Remove</button>
+              <button onClick={() => handleRemoveTodo(Number(item.id))}>Remove</button>
             </li>
           </ul>
         ))}
