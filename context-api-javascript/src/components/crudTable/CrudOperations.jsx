@@ -26,6 +26,9 @@ import Select from "@mui/material/Select";
 import { getEmployeeProfileData } from "@/context/actions/crudActions/getEmployeeProfile";
 import { getEmployeeTableData } from "@/context/actions/crudActions/getEmployeeTable";
 import { GlobalContext } from "@/context/GlobalContext";
+import AddEmployee from "./AddEmployee";
+import DeleteEmployee from "./DeleteEmployee";
+import EditEmployee from "./EditEmployee";
 
 const columns = [
   {
@@ -197,6 +200,7 @@ const CrudOperations = () => {
   };
 
   useEffect(() => {
+
     if (!sessionStorage.getItem("page")) {
       sessionStorage.setItem("page", 1);
     }
@@ -479,22 +483,22 @@ const CrudOperations = () => {
       )}
 
       {/* add employee dialog */}
-      {/* <AddEmployee
+      <AddEmployee
         addEmployeeOpen={addEmployeeOpen}
         setAddEmployeeOpen={setAddEmployeeOpen}
         setPage={setPage}
-      /> */}
+      />
 
       {/* edit employee dialog */}
-      {/* <EditEmployee
+      <EditEmployee
         editEmployeeopen={editEmployeeopen}
         setEditEmployeeOpen={setEditEmployeeOpen}
         tableRowId={tableRowId}
-      /> */}
+      />
+
 
       {/* delete employee dialog */}
-
-      {/* {data?.data?.employeesTableData?.length !== "undefined" && (
+      {data?.data?.employeesTableData?.length !== "undefined" && (
         <DeleteEmployee
           deleteEmployeeOpen={deleteEmployeeOpen}
           setDeleteEmployeeOpen={setDeleteEmployeeOpen}
@@ -508,7 +512,8 @@ const CrudOperations = () => {
           }
           setPage={setPage}
         />
-      )} */}
+      )}
+
     </div>
   );
 };

@@ -4,6 +4,9 @@ import Head from "next/head";
 import Navbar from "@/components/Navbar";
 import { GlobalProvider } from "@/context/GlobalContext";
 
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const roboto = Roboto({
   subsets: ["latin"],
   weight: ["100", "300", "400", "500", "700", "900"],
@@ -35,6 +38,7 @@ export default function RootLayout({ children }) {
           <GlobalProvider>
             <Navbar />
             {children}
+            <ToastContainer />
           </GlobalProvider>
         </body>
       </html>

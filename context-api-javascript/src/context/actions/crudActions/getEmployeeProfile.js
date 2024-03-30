@@ -27,5 +27,6 @@ export const getEmployeeProfileData =
         type: GET_EMPLOYEE_PROFILE_FAILURE,
         payload: error && error.response.data.error,
       });
+      throw new Error(error.response.data.error);
     }
   };
