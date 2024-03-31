@@ -1,11 +1,15 @@
 "use client"
 
+import { useGlobalContext } from '@/context/GlobalContext';
 import { AppBar, Toolbar, Typography, Box } from '@mui/material';
 import { usePathname, useRouter } from 'next/navigation';
 
 const Navbar = () => {
   const router = useRouter();
   const pathname = usePathname();
+
+  const { crudState, crudDispatch } = useGlobalContext()
+  console.log("crudState", crudState) // how is this possible?
 
   return (
     <AppBar position="static" sx={{ flexGrow: 1 }}>
