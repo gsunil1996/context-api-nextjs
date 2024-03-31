@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import {
   DELETE_EMPLOYEE_TABLE_DATA_FAILURE,
   DELETE_EMPLOYEE_TABLE_DATA_REQUEST,
@@ -6,16 +6,24 @@ import {
   DELETE_EMPLOYEE_TABLE_DATA_SUCCESS,
 } from "@/context/actionTypes/crudActionTypes";
 import { baseURL } from "@/context/actions/baseURL/baseUrl";
+import {
+  DeleteEmployeeActionType,
+  DeleteEmployeeProfileApiResponse,
+  DeleteEmployeeProps,
+  DeleteEmployeeResetType,
+  ErrorResponseType,
+} from "@/types/crud.types";
+import { Dispatch } from "react";
 
 export const deleteEmployeeTableData =
-  ({ tableRowId }) =>
-  async (dispatch) => {
+  ({ tableRowId }: DeleteEmployeeProps) =>
+  async (dispatch: Dispatch<DeleteEmployeeActionType>): Promise<void> => {
     try {
       dispatch({
         type: DELETE_EMPLOYEE_TABLE_DATA_REQUEST,
       });
 
-      const { data } = await axios.delete(
+      const { data } = await axios.delete<DeleteEmployeeProfileApiResponse>(
         `${baseURL}/deleteEmployee/${tableRowId}`
       );
 
@@ -23,19 +31,23 @@ export const deleteEmployeeTableData =
 
       dispatch({
         type: DELETE_EMPLOYEE_TABLE_DATA_SUCCESS,
-        payload: data || {},
+        payload: data,
       });
     } catch (error) {
+      const axiosError = error as AxiosError<ErrorResponseType>;
+      const errorMessage = axiosError.response?.data?.error || "Unknown error";
       dispatch({
         type: DELETE_EMPLOYEE_TABLE_DATA_FAILURE,
-        payload: error && error.response.data.error,
+        payload: errorMessage,
       });
-      throw new Error(error.response.data.error);
+      throw new Error(errorMessage);
     }
   };
 
-export const deleteEmployeeTableReset = () => async (dispatch) => {
-  dispatch({
-    type: DELETE_EMPLOYEE_TABLE_DATA_RESET,
-  });
-};
+export const deleteEmployeeTableReset =
+  () =>
+  async (dispatch: Dispatch<DeleteEmployeeResetType>): Promise<void> => {
+    dispatch({
+      type: DELETE_EMPLOYEE_TABLE_DATA_RESET,
+    });
+  };

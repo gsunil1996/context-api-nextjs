@@ -1,6 +1,7 @@
 // GlobalContext.tsx
 
 "use client"
+
 import React, { Dispatch, createContext, useContext, useReducer } from 'react';
 import weatherReducer from './reducers/weatherReducer';
 import counterReducer from './reducers/counterReducer';
@@ -15,6 +16,9 @@ import { ChildrenProps } from '@/types/common.types';
 import { todoInitialState } from './initialStates/todoInitialState';
 import { TodoAction, TodoState } from '@/types/todo.types';
 import todoReducer from './reducers/todoReducer';
+import { CrudActions, CrudInitialState } from '@/types/crud.types';
+import { crudInitialState } from './initialStates/crudInitialState';
+import crudReducer from './reducers/crudReducer';
 
 type GlobalContextType = {
   counterState: CounterState;
@@ -25,6 +29,8 @@ type GlobalContextType = {
   weatherDispatch: Dispatch<WeatherAction>;
   petsState: PetsStateType;
   petsDispatch: Dispatch<PetsActionsTypes>;
+  crudState: CrudInitialState;
+  crudDispatch: Dispatch<CrudActions>
 }
 
 // Create context with initial state as default value
@@ -38,6 +44,8 @@ const defaultContextValues: GlobalContextType = {
   weatherDispatch: () => null,
   petsState: petsInitialState,
   petsDispatch: () => null,
+  crudState: crudInitialState,
+  crudDispatch: () => null,
 };
 
 export const GlobalContext = createContext<GlobalContextType>(defaultContextValues);
@@ -48,6 +56,7 @@ export const GlobalProvider = ({ children }: ChildrenProps): JSX.Element => {
   const [todoState, todoDispatch] = useReducer(todoReducer, todoInitialState);
   const [weatherState, weatherDispatch] = useReducer(weatherReducer, weatherInitialState);
   const [petsState, petsDispatch] = useReducer(petsReducer, petsInitialState);
+  const [crudState, crudDispatch] = useReducer(crudReducer, crudInitialState)
 
   return (
     <GlobalContext.Provider
@@ -60,6 +69,8 @@ export const GlobalProvider = ({ children }: ChildrenProps): JSX.Element => {
         weatherDispatch,
         petsState,
         petsDispatch,
+        crudState,
+        crudDispatch
       }}
     >
       {children}
@@ -69,7 +80,7 @@ export const GlobalProvider = ({ children }: ChildrenProps): JSX.Element => {
 
 
 // create a custom hook
-export function useGlobalContext() {
+export function useGlobalContext(): GlobalContextType {
   const context = useContext(GlobalContext);
   if (!context) throw new Error('useGlobalContext must be used within the GlobalProvider');
   return context;

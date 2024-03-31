@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 
 import {
   GET_EMPLOYEE_TABLE_DATA_FAILURE,
@@ -7,16 +7,23 @@ import {
 } from "@/context/actionTypes/crudActionTypes";
 
 import { baseURL } from "@/context/actions/baseURL/baseUrl";
+import {
+  ErrorResponseType,
+  GetEmployeeActionType,
+  GetEmployeeTableAPIResponse,
+  GetEmployeeTableDataProps,
+} from "@/types/crud.types";
+import { Dispatch } from "react";
 
 export const getEmployeeTableData =
-  ({ search, gender, status, sort, page }) =>
-  async (dispatch) => {
+  ({ search, gender, status, sort, page }: GetEmployeeTableDataProps) =>
+  async (dispatch: Dispatch<GetEmployeeActionType>): Promise<void> => {
     try {
       dispatch({
         type: GET_EMPLOYEE_TABLE_DATA_REQUEST,
       });
 
-      const { data } = await axios.get(
+      const { data } = await axios.get<GetEmployeeTableAPIResponse>(
         `${baseURL}/employeesTable?search=${search}&gender=${gender}&status=${status}&sort=${sort}&page=${page}`
       );
 
@@ -27,10 +34,13 @@ export const getEmployeeTableData =
         payload: data || {},
       });
     } catch (error) {
+      const axiosError = error as AxiosError<ErrorResponseType>;
+      const errorMessage = axiosError.response?.data?.error || "Unknown error";
+
       dispatch({
         type: GET_EMPLOYEE_TABLE_DATA_FAILURE,
-        payload: error && error.response.data.error,
+        payload: errorMessage,
       });
-      throw new Error(error.response.data.error);
+      throw new Error(errorMessage);
     }
   };

@@ -8,8 +8,8 @@ import {
 import { baseURL } from "@/context/actions/baseURL/baseUrl";
 import {
   AddEmployeeActionType,
-  AddEmployeeErrorResponseType,
   AddEmployeeResetAction,
+  ErrorResponseType,
   InputDataType,
 } from "@/types/crud.types";
 import { Dispatch } from "react";
@@ -31,7 +31,7 @@ export const addEmployeeTableData =
         payload: data || {},
       });
     } catch (error) {
-      const axiosError = error as AxiosError<AddEmployeeErrorResponseType>;
+      const axiosError = error as AxiosError<ErrorResponseType>;
       const errorMessage = axiosError.response?.data?.error || "Unknown error";
 
       dispatch({

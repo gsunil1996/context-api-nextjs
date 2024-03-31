@@ -1,8 +1,11 @@
+import CrudOperations from '@/components/crudTable/CrudOperations'
 import React from 'react'
 
 const MernCrudTable = () => {
   return (
-    <div>MernCrudTable</div>
+    <div>
+      <CrudOperations />
+    </div>
   )
 }
 
