@@ -3,7 +3,7 @@
 import { WeatherState } from "@/types/weather.types";
 
 export const weatherInitialState: WeatherState = {
-  weatherData: { name: "", main: { temp: 0 } },
+  weatherData: null,
   isLoading: false,
   isSuccess: false,
   isError: false,

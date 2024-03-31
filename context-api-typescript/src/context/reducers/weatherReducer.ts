@@ -4,7 +4,6 @@ import {
   GetWeatherFailureAction,
   GetWeatherSuccessAction,
   WeatherAction,
-  WeatherData,
   WeatherState,
 } from "@/types/weather.types";
 import {
@@ -22,7 +21,7 @@ const weatherReducer = (
     case GET_WEATHER_REQUEST:
       return {
         ...state,
-        weatherData: { name: "", main: { temp: 0 } },
+        weatherData: null,
         isLoading: true,
         isSuccess: false,
         isError: false,
@@ -40,7 +39,7 @@ const weatherReducer = (
     case GET_WEATHER_FAILURE:
       return {
         ...state,
-        weatherData: { name: "", main: { temp: 0 } },
+        weatherData: null,
         isLoading: false,
         isSuccess: false,
         isError: true,

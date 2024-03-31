@@ -1,12 +1,12 @@
 "use client";
 
-import { GlobalContext } from "@/context/GlobalContext";
+import { useGlobalContext } from "@/context/GlobalContext";
 import { getWeatherData } from "@/context/actions/weatherActions";
 import { Box, Button, LinearProgress, TextField } from "@mui/material";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const WeatherApi = () => {
-  const { weatherState, weatherDispatch } = useContext(GlobalContext);
+  const { weatherState, weatherDispatch } = useGlobalContext()
 
   const { weatherData, isLoading, isSuccess, isError, error } = weatherState;
 

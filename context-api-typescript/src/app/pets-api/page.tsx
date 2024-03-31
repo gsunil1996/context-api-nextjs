@@ -1,10 +1,10 @@
 "use client";
-import { GlobalContext } from "@/context/GlobalContext";
+import { useGlobalContext } from "@/context/GlobalContext";
 import { getPetsData } from "@/context/actions/petsActions";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const PetsApi = () => {
-  const { petsState, petsDispatch } = useContext(GlobalContext);
+  const { petsState, petsDispatch } = useGlobalContext()
 
   const { petsData, isLoading, isSuccess, isError, error } = petsState;
 

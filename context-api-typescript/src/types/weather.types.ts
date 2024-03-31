@@ -32,7 +32,7 @@ export type WeatherErrorResponse = {
 };
 
 export type WeatherState = {
-  weatherData: WeatherData;
+  weatherData: WeatherData | null;
   isLoading: boolean;
   isSuccess: boolean;
   isError: boolean;

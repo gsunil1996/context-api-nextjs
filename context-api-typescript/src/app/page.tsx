@@ -1,11 +1,10 @@
 "use client"
 
-import { GlobalContext } from '@/context/GlobalContext'
+import { useGlobalContext } from '@/context/GlobalContext'
 import { decrement, increment, resetCounter } from '@/context/actions/counterActions';
-import React, { useContext } from 'react'
 
 const Home = () => {
-  const { counterState, counterDispatch } = useContext(GlobalContext);
+  const { counterState, counterDispatch } = useGlobalContext();
 
   const handleIncrement = (amount: number): void => {
     counterDispatch(increment(amount));
