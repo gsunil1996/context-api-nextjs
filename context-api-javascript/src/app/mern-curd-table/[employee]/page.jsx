@@ -1,18 +1,18 @@
 "use client"
 
-import { useContext, useEffect } from "react";
+import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import moment from "moment";
 import CircularProgress from "@mui/material/CircularProgress";
 import Button from "@mui/material/Button";
-import { GlobalContext } from "@/context/GlobalContext";
+import { useGlobalContext } from "@/context/GlobalContext";
 import { getEmployeeProfileData } from "@/context/actions/crudActions/getEmployeeProfile";
 
 const EmployeesProfile = ({ params }) => {
   const router = useRouter();
-  const { crudState, crudDispatch } = useContext(GlobalContext);
+  const { crudState, crudDispatch } = useGlobalContext()
 
   const id = params?.employee
 

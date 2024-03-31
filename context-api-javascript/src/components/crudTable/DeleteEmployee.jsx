@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useContext } from "react";
+import React from "react";
 import Dialog from "@mui/material/Dialog";
 import DialogContent from "@mui/material/DialogContent";
 import Slide from "@mui/material/Slide";
@@ -8,7 +8,7 @@ import Button from "@mui/material/Button";
 import CircularProgress from "@mui/material/CircularProgress";
 import { deleteEmployeeTableData, deleteEmployeeTableReset } from "@/context/actions/crudActions/deleteEmployee";
 import { getEmployeeTableData } from "@/context/actions/crudActions/getEmployeeTable";
-import { GlobalContext } from "@/context/GlobalContext";
+import { useGlobalContext } from "@/context/GlobalContext";
 import { toast } from "react-toastify";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -24,7 +24,7 @@ const DeleteEmployee = (props) => {
     setPage,
   } = props;
 
-  const { crudState, crudDispatch } = useContext(GlobalContext);
+  const { crudState, crudDispatch } = useGlobalContext()
 
   const { employeeDeleteDataLoading } = crudState
 

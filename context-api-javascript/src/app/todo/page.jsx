@@ -1,11 +1,11 @@
 "use client";
 
-import React, { useContext, useState } from "react";
-import { GlobalContext } from "@/context/GlobalContext";
+import React, { useState } from "react";
+import { useGlobalContext } from "@/context/GlobalContext";
 import { addTodo, editTodo, removeTodo } from "@/context/actions/todoActions";
 
 const TodoComponent = () => {
-  const { todoState, todoDispatch } = useContext(GlobalContext);
+  const { todoState, todoDispatch } = useGlobalContext()
   const [text, setText] = useState("");
   const [editText, setEditText] = useState(null);
 

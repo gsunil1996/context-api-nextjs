@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import Dialog from "@mui/material/Dialog";
 import DialogContent from "@mui/material/DialogContent";
 import Slide from "@mui/material/Slide";
@@ -15,7 +15,7 @@ import Select from "@mui/material/Select";
 import Button from "@mui/material/Button";
 import CircularProgress from "@mui/material/CircularProgress";
 import { addEmployeeTableData, addEmployeeTableReset } from "@/context/actions/crudActions/addEmployee";
-import { GlobalContext } from "@/context/GlobalContext";
+import { useGlobalContext } from "@/context/GlobalContext";
 import { getEmployeeTableData } from "@/context/actions/crudActions/getEmployeeTable";
 import { toast } from "react-toastify";
 
@@ -26,7 +26,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 
 const AddEmployee = (props) => {
   const { addEmployeeOpen, setAddEmployeeOpen, setPage } = props;
-  const { crudState, crudDispatch } = useContext(GlobalContext);
+  const { crudState, crudDispatch } = useGlobalContext()
 
   const { employeeAddDataLoading, employeeAddedDataError } = crudState;
 

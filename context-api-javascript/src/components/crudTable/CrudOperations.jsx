@@ -1,6 +1,6 @@
 "use client"
 
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -25,7 +25,7 @@ import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import { getEmployeeProfileData } from "@/context/actions/crudActions/getEmployeeProfile";
 import { getEmployeeTableData } from "@/context/actions/crudActions/getEmployeeTable";
-import { GlobalContext } from "@/context/GlobalContext";
+import { useGlobalContext } from "@/context/GlobalContext";
 import AddEmployee from "./AddEmployee";
 import DeleteEmployee from "./DeleteEmployee";
 import EditEmployee from "./EditEmployee";
@@ -100,7 +100,7 @@ const columns = [
 
 const CrudOperations = () => {
   const router = useRouter();
-  const { crudState, crudDispatch } = useContext(GlobalContext);
+  const { crudState, crudDispatch } = useGlobalContext()
 
   const { data, isLoading, isError, error, isSuccess } = crudState;
 

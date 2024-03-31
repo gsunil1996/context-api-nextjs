@@ -2,7 +2,7 @@
 
 "use client"
 
-import React, { createContext, useReducer } from 'react';
+import React, { createContext, useContext, useReducer } from 'react';
 import weatherReducer from './reducers/weatherReducer';
 import counterReducer from './reducers/counterReducer';
 import { weatherInitialState } from './initialStates/weatherInitialState';
@@ -16,18 +16,7 @@ import crudReducer from './reducers/crudReducer';
 
 
 // Create context with initial state as default value
-export const GlobalContext = createContext({
-  counterState: counterInitialState,
-  counterDispatch: () => null,
-  todoState: todoInitialState,
-  todoDispatch: () => null,
-  weatherState: weatherInitialState,
-  weatherDispatch: () => null,
-  petsState: petsInitialState,
-  petsDispatch: () => null,
-  crudState: crudInitialState,
-  crudDispatch: () => null
-});
+export const GlobalContext = createContext(null);
 
 export const GlobalProvider = ({ children }) => {
   const [counterState, counterDispatch] = useReducer(counterReducer, counterInitialState);
@@ -55,3 +44,10 @@ export const GlobalProvider = ({ children }) => {
     </GlobalContext.Provider>
   );
 };
+
+// create a custom hook
+export function useGlobalContext() {
+  const context = useContext(GlobalContext);
+  if (!context) throw new Error('useGlobalContext must be used within the GlobalProvider');
+  return context;
+}
