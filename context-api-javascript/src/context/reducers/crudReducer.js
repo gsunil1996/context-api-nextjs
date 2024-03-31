@@ -26,7 +26,7 @@ const crudReducer = (state = crudInitialState, action) => {
     case GET_EMPLOYEE_TABLE_DATA_REQUEST:
       return {
         ...state,
-        data: {},
+        data: null,
         isLoading: true,
         isSuccess: false,
         isError: false,
@@ -44,7 +44,7 @@ const crudReducer = (state = crudInitialState, action) => {
     case GET_EMPLOYEE_TABLE_DATA_FAILURE:
       return {
         ...state,
-        data: {},
+        data: null,
         isLoading: false,
         isSuccess: false,
         isError: true,
@@ -55,7 +55,7 @@ const crudReducer = (state = crudInitialState, action) => {
     case GET_EMPLOYEE_PROFILE_REQUEST:
       return {
         ...state,
-        employeeProfileData: {},
+        employeeProfileData: null,
         employeeProfileIsLoading: true,
         employeeProfileIsSuccess: false,
         employeeProfileIsError: false,
@@ -73,7 +73,7 @@ const crudReducer = (state = crudInitialState, action) => {
     case GET_EMPLOYEE_PROFILE_FAILURE:
       return {
         ...state,
-        employeeProfileData: {},
+        employeeProfileData: null,
         employeeProfileIsLoading: false,
         employeeProfileIsSuccess: false,
         employeeProfileIsError: true,
@@ -84,7 +84,7 @@ const crudReducer = (state = crudInitialState, action) => {
     case ADD_EMPLOYEE_TABLE_DATA_REQUEST:
       return {
         ...state,
-        employeeAddedData: {},
+        employeeAddedData: null,
         employeeAddDataLoading: true,
         employeeAddedDataIsSuccess: false,
         employeeAddedDataIsError: false,
@@ -102,7 +102,7 @@ const crudReducer = (state = crudInitialState, action) => {
     case ADD_EMPLOYEE_TABLE_DATA_FAILURE:
       return {
         ...state,
-        employeeAddedData: {},
+        employeeAddedData: null,
         employeeAddDataLoading: false,
         employeeAddedDataIsSuccess: false,
         employeeAddedDataIsError: true,
@@ -111,7 +111,7 @@ const crudReducer = (state = crudInitialState, action) => {
     case ADD_EMPLOYEE_TABLE_DATA_RESET:
       return {
         ...state,
-        employeeAddedData: {},
+        employeeAddedData: null,
         employeeAddDataLoading: false,
         employeeAddedDataIsSuccess: false,
         employeeAddedDataIsError: false,
@@ -122,7 +122,7 @@ const crudReducer = (state = crudInitialState, action) => {
     case EDIT_EMPLOYEE_TABLE_DATA_REQUEST:
       return {
         ...state,
-        employeeEditedData: {},
+        employeeEditedData: null,
         employeeEditDataLoading: true,
         employeeEditDataIsSuccess: false,
         employeeEditDataIsError: false,
@@ -140,7 +140,7 @@ const crudReducer = (state = crudInitialState, action) => {
     case EDIT_EMPLOYEE_TABLE_DATA_FAILURE:
       return {
         ...state,
-        employeeEditedData: {},
+        employeeEditedData: null,
         employeeEditDataLoading: false,
         employeeEditDataIsSuccess: false,
         employeeEditDataIsError: true,
@@ -149,7 +149,7 @@ const crudReducer = (state = crudInitialState, action) => {
     case EDIT_EMPLOYEE_TABLE_DATA_RESET:
       return {
         ...state,
-        employeeEditedData: {},
+        employeeEditedData: null,
         employeeEditDataLoading: false,
         employeeEditDataIsSuccess: false,
         employeeEditDataIsError: false,
@@ -160,7 +160,7 @@ const crudReducer = (state = crudInitialState, action) => {
     case DELETE_EMPLOYEE_TABLE_DATA_REQUEST:
       return {
         ...state,
-        employeeDeletedData: {},
+        employeeDeletedData: null,
         employeeDeleteDataLoading: true,
         employeeDeleteDataIsSuccess: false,
         employeeDeleteDataIsError: false,
@@ -178,7 +178,7 @@ const crudReducer = (state = crudInitialState, action) => {
     case DELETE_EMPLOYEE_TABLE_DATA_FAILURE:
       return {
         ...state,
-        employeeDeletedData: {},
+        employeeDeletedData: null,
         employeeDeleteDataLoading: false,
         employeeDeleteDataIsSuccess: false,
         employeeDeleteDataIsError: true,
@@ -187,7 +187,7 @@ const crudReducer = (state = crudInitialState, action) => {
     case DELETE_EMPLOYEE_TABLE_DATA_RESET:
       return {
         ...state,
-        employeeDeletedData: {},
+        employeeDeletedData: null,
         employeeDeleteDataLoading: false,
         employeeDeleteDataIsSuccess: false,
         employeeDeleteDataIsError: false,

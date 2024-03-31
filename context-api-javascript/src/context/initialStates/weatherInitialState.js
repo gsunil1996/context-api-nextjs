@@ -1,6 +1,6 @@
 // weatherInitialState.js
 export const weatherInitialState = {
-  weatherData: {},
+  weatherData: null,
   isLoading: false,
   isSuccess: false,
   isError: false,

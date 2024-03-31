@@ -3,7 +3,51 @@ import {
   ADD_EMPLOYEE_TABLE_DATA_REQUEST,
   ADD_EMPLOYEE_TABLE_DATA_RESET,
   ADD_EMPLOYEE_TABLE_DATA_SUCCESS,
+  GET_EMPLOYEE_TABLE_DATA_REQUEST,
+  GET_EMPLOYEE_TABLE_DATA_SUCCESS,
 } from "@/context/actionTypes/crudActionTypes";
+
+///////////////// GET EMPLOYEE TABLE /////////////////////////////////////////////////////////
+
+type Pagination = {
+  count: number;
+  pageCount: number;
+};
+
+type Employee = {
+  _id: string;
+  fname: string;
+  lname: string;
+  email: string;
+  mobile: string;
+  gender: "male" | "female";
+  status: "active" | "inactive";
+  location: string;
+  datecreated: string; // This should ideally be a Date type if you can parse it
+  __v: number;
+  dateUpdated?: string; // This property is optional as it's not present in all employee objects
+};
+
+type EmployeesData = {
+  pagination: Pagination;
+  employeesTableData: Employee[];
+};
+
+type GetEmployeeTableAPIResponse = {
+  success: boolean;
+  data: EmployeesData;
+};
+
+export type GetEmployeeTableDataRequestType = {
+  type: typeof GET_EMPLOYEE_TABLE_DATA_REQUEST;
+};
+
+export type GetEmployeeTableSuccessType = {
+  type: typeof GET_EMPLOYEE_TABLE_DATA_SUCCESS;
+  payload: GetEmployeeTableAPIResponse;
+};
+
+/////////////////////////////////////////////////////////////////////////////////////////////
 
 // export interface InputDataType {
 //   fname: string;
@@ -67,31 +111,31 @@ export type AddEmployeeActionType =
   | AddEmployeeFailureAction;
 
 export type CrudInitialState = {
-  data: Record<string, any>;
+  data: null;
   isLoading: boolean;
   isSuccess: boolean;
   isError: boolean;
   error: string;
 
-  employeeProfileData: Record<string, any>;
+  employeeProfileData: null;
   employeeProfileIsLoading: boolean;
   employeeProfileIsSuccess: boolean;
   employeeProfileIsError: boolean;
   employeeProfileError: string;
 
-  employeeAddedData: AddSuccessPayloadType | object;
+  employeeAddedData: AddSuccessPayloadType | null;
   employeeAddedDataIsSuccess: boolean;
   employeeAddDataLoading: boolean;
   employeeAddedDataIsError: boolean;
   employeeAddedDataError: string;
 
-  employeeEditedData: Record<string, any>;
+  employeeEditedData: null;
   employeeEditDataLoading: boolean;
   employeeEditDataIsSuccess: boolean;
   employeeEditDataIsError: boolean;
   employeeEditDataError: string;
 
-  employeeDeletedData: Record<string, any>;
+  employeeDeletedData: null;
   employeeDeleteDataLoading: boolean;
   employeeDeleteDataIsSuccess: boolean;
   employeeDeleteDataIsError: boolean;

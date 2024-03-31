@@ -2,35 +2,35 @@ import { CrudInitialState } from "@/types/crud.types";
 
 export const crudInitialState: CrudInitialState = {
   // get employee table data
-  data: {},
+  data: null,
   isLoading: false,
   isSuccess: false,
   isError: false,
   error: "",
 
   // get employee profile
-  employeeProfileData: {},
+  employeeProfileData: null,
   employeeProfileIsLoading: false,
   employeeProfileIsSuccess: false,
   employeeProfileIsError: false,
   employeeProfileError: "",
 
   // add employee table data
-  employeeAddedData: {},
+  employeeAddedData: null,
   employeeAddedDataIsSuccess: false,
   employeeAddDataLoading: false,
   employeeAddedDataIsError: false,
   employeeAddedDataError: "",
 
   // edit employee table data
-  employeeEditedData: {},
+  employeeEditedData: null,
   employeeEditDataLoading: false,
   employeeEditDataIsSuccess: false,
   employeeEditDataIsError: false,
   employeeEditDataError: "",
 
   // delete employee table data
-  employeeDeletedData: {},
+  employeeDeletedData: null,
   employeeDeleteDataLoading: false,
   employeeDeleteDataIsSuccess: false,
   employeeDeleteDataIsError: false,

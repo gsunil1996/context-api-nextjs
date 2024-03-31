@@ -19,7 +19,7 @@ import todoReducer from './reducers/todoReducer';
 type GlobalContextType = {
   counterState: CounterState;
   counterDispatch: Dispatch<CounterAction>;
-  todoState: TodoState,
+  todoState: TodoState;
   todoDispatch: Dispatch<TodoAction>,
   weatherState: WeatherState;
   weatherDispatch: Dispatch<WeatherAction>;

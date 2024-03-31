@@ -31,7 +31,7 @@ export type PetsErrorResponse = {
 };
 
 export type PetsStateType = {
-  petsData: PetsDataType[];
+  petsData: PetsDataType[] | null;
   isLoading: boolean;
   isSuccess: boolean;
   isError: boolean;
